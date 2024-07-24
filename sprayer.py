@@ -17,8 +17,7 @@ def credential_mode(credentials):
     for cred in credentials:
 
         # Process the credential, handle possible ':' characters in the password.
-        username = cred.split(':')[0]
-        password = cred.split(':')[1:].join('')
+        username, password = cred.split(':', 1)
 
         # Make login attempt
         login_response_code, login_response = send_login_request(username, password)
@@ -42,7 +41,7 @@ def credential_mode(credentials):
 
 # Handle Credential mode
 if "CREDENTIALS" not in missing_env_vars:
-    credentials = os.getenv("CREDENTIALS").split(',')
+    credentials = os.getenv("CREDENTIALS").split(',').strip()
     credential_mode(credentials)
 
 
