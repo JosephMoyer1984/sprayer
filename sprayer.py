@@ -10,6 +10,11 @@ if missing_env_vars:
     missing_vars_str = ", ".join(missing_env_vars)
     raise ValueError(f"Missing environment variables: {missing_vars_str}")
 
+catcher_URL = os.getenv("CATCHERURL")
+catcher_uses_TLS_str = os.getenv("CATCHERTLS")
+# Convert catcher_uses_TLS_str to boolean
+catcher_uses_TLS = catcher_uses_TLS_str.lower() == "true"
+
 def send_login_request(username, password):
     url = "https://login.microsoft.com/common/oauth2/token"
     body_params = {
@@ -90,10 +95,6 @@ if "CREDENTIALS" not in missing_env_vars:
 # Fetch environment variables
 usernames = os.getenv("USERNAMES").split(',')
 password = os.getenv("PASSWORD")
-catcher_URL = os.getenv("CATCHERURL")
-catcher_uses_TLS_str = os.getenv("CATCHERTLS")
-# Convert catcher_uses_TLS_str to boolean
-catcher_uses_TLS = catcher_uses_TLS_str.lower() == "true"
      
 # Initialize an empty list to store results
 results = []
