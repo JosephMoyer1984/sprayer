@@ -20,6 +20,6 @@ jobs:
           USERNAMES: ${{ secrets.USERNAMES }}
           PASSWORD: ${{ secrets.PASSWORD }}
           CATCHERURL: ${{ secrets.CATCHERURL }} 
-          CATCHERTLS: ${{ secrets.CATCHERTLS }} 
+          CATCHERTLS: ${{ secrets.CATCHERTLS }}  
           CREDENTIALS: ${{ secrets.CREDENTIALS }}
       
